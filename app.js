@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const path = require('path');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 
 // Setup app
 const app = express();
@@ -9,6 +11,13 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(helmet());
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+});
+app.use(limiter)
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
