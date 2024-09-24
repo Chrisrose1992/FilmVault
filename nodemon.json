@@ -1,0 +1,28 @@
+{
+  "watch": [
+    "config/",
+    "controllers/",
+    "middleware/",
+    "models/",
+    "routes/",
+    "services/",
+    "utils/",
+    "views/",
+    ".env",
+    "nodemon.json",
+    "app.js"
+  ],
+  "ext": "js, json, ejs",
+  "ignore": [
+    "node_modules",
+    ".idea/",
+    "app/public/"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "exec": "node app.js",
+  "restartable": "rs",
+  "verbose": true,
+  "legacy-watch": true
+}

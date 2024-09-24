@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title><%= movie.title %></title>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="logo">
+      <a href="/">Film Vault</a>
+    </div>
+    <div class="search-bar">
+      <form action="/search" method="get">
+        <input type="text" name="title" placeholder="Search for a movie...">
+        <button type="submit">
+          <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M3.75 9C3.75 6.1005 6.1005 3.75 9 3.75C11.8995 3.75 14.25 6.1005 14.25 9C14.25 11.8995 11.8995 14.25 9 14.25C6.1005 14.25 3.75 11.8995 3.75 9ZM9 2.25C5.27208 2.25 2.25 5.27208 2.25 9C2.25 12.7279 5.27208 15.75 9 15.75C10.5938 15.75 12.0585 15.1976 13.2133 14.2739L16.7192 17.7799C17.0121 18.0728 17.487 18.0728 17.7799 17.7799C18.0728 17.487 18.0728 17.0121 17.7799 16.7192L14.2739 13.2133C15.1976 12.0585 15.75 10.5938 15.75 9C15.75 5.27208 12.7279 2.25 9 2.25Z"
+                    fill="#93959C"
+            />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="top_panel">
+      <div class="poster">
+        <img src="https://image.tmdb.org/t/p/w500<%= movie.poster_path %>" alt="<%= movie.title %> Poster">
+      </div>
+      <div class="info_panel">
+        <h1><%= movie.title %></h1>
+        <p><strong>Release Date:</strong> <%= movie.release_date %></p>
+        <p><strong>Overview:</strong> <%= movie.overview %></p>
+        <p><strong>Genres:</strong> <%= movie.genres.map(g => g.name).join(', ') %></p>
+      </div>
+    </div>
+
+    <div class="cast">
+      <h2>Cast</h2>
+      <ul>
+        <% movie.credits.cast.slice(0, 10).forEach(function(actor) { %>
+          <li><%= actor.name %> as <%= actor.character %></li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+</main>
+</body>
+</html>
