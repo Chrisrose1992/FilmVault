@@ -75,7 +75,7 @@ To run this project locally, follow these steps:
 ![FilmVault Homepage](./screenshots/homepage.png)
 
 ### Search Results
-![Search Results](./screenshots/search-results.png)
+![Search Results](./screenshots/search.png)
 
 ### Movie Details
 ![Movie Details](./screenshots/movie-details.png)
